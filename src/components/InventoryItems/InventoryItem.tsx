@@ -4,11 +4,11 @@ import { useDrag } from "react-dnd";
 
 const InventoryItem = (props: any) => {
   const ref = useRef();
-  const { itemPic, itemName, ...rest } = props;
+  const { inventoryItem, ...rest } = props;
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "Image",
-    item: { name: itemName },
+    item: { inventoryItem: inventoryItem },
     collect: (monitor) => {
       return {
         isDragging: monitor.isDragging(),
@@ -22,9 +22,9 @@ const InventoryItem = (props: any) => {
     <Flex ref={ref} justifyContent="center" alignItems="center" {...rest}>
       <Flex direction="column">
         <Flex>
-          <Image src={itemPic} alt={itemName} h="128px" />
+          <Image src={inventoryItem.image} alt={inventoryItem.name} h="128px" />
         </Flex>
-        <Flex justifyContent="center">{itemName}</Flex>
+        <Flex justifyContent="center">{inventoryItem.name}</Flex>
       </Flex>
     </Flex>
   );

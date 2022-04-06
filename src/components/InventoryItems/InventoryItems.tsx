@@ -8,12 +8,7 @@ const InventoryItems = () => {
     <Box>
       {inventoryItems.map((inventoryItem, index) => {
         return (
-          <InventoryItem
-            key={index}
-            itemName={inventoryItem.name}
-            itemPic={inventoryItem.image}
-            py="20px"
-          />
+          <InventoryItem key={index} inventoryItem={inventoryItem} py="20px" />
         );
       })}
     </Box>
