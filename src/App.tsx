@@ -1,5 +1,13 @@
-import React from "react";
-import { ChakraProvider, Text, Flex, theme, Image } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import {
+  ChakraProvider,
+  Text,
+  Flex,
+  theme,
+  Image,
+  useToast,
+  Alert,
+} from "@chakra-ui/react";
 import InventoryItems from "./components/InventoryItems";
 import ItemsToPack from "./components/ItemsToPack";
 import InventoryBoxes from "./components/InventoryBoxes";
@@ -14,8 +22,25 @@ import { InventoryBoxesProvider } from "./contexts/InventoryBoxesContext";
 // Contains mostly Layout information and makes calls to other components
 // Setup for Context Providers done here too
 export const App = () => {
+  const newFeaturesToast = useToast();
+
+  useEffect(() => {
+    newFeaturesToast({
+      duration: 5000,
+      render: () => {
+        return (
+          <Alert borderRadius="2px" bgColor="tomato" p="8px">
+            <Text>
+              Now double-click to add an Inventory Item to the Pick List!
+            </Text>
+          </Alert>
+        );
+      },
+    });
+  }, []);
+
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <Flex
         direction="column"
         minHeight="100vh"
