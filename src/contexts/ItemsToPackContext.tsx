@@ -7,7 +7,6 @@ export const ItemsToPackProvider: React.FC = ({ children }) => {
   const [itemsToPack, setItemsToPack] = useState({});
 
   const setItemsToPackHandler = (item: any) => {
-    console.log(item);
     setItemsToPack((currentItemsToPack: any) => {
       const newItemFromDrop: any = {};
 
