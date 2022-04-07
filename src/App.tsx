@@ -37,7 +37,7 @@ export const App = () => {
         );
       },
     });
-  }, []);
+  }, [newFeaturesToast]);
 
   return (
     <ChakraProvider>
