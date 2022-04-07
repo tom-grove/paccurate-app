@@ -40,7 +40,7 @@ export const App = () => {
   }, [newFeaturesToast]);
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Flex
         direction="column"
         minHeight="100vh"
