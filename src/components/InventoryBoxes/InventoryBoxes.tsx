@@ -3,7 +3,8 @@ import { Flex, CheckboxGroup, Checkbox, Stack } from "@chakra-ui/react";
 import { inventoryBoxTypes } from "../../data/inventoryBoxTypes";
 import { InventoryBoxesContext } from "../../contexts/InventoryBoxesContext";
 
-const Boxes = () => {
+// Iterates over box inventory and creates a checkbox representing each one
+const InventoryBoxes = () => {
   const [inventoryBoxesSelected, setInventoryBoxesSelected] = useContext(
     InventoryBoxesContext
   );
@@ -36,4 +37,4 @@ const Boxes = () => {
   );
 };
 
-export default Boxes;
+export default InventoryBoxes;

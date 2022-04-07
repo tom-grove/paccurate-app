@@ -3,6 +3,8 @@ import { Box } from "@chakra-ui/react";
 import InventoryItem from "./InventoryItem";
 import { inventoryItems } from "../../data/inventoryItems";
 
+// Iterates over the predefined list of Inventory Items provided by our 'database' (it's just a file :))
+// Creates new InventoryItem for each iteration
 const InventoryItems = () => {
   return (
     <Box>

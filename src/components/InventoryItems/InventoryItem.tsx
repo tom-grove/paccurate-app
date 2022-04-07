@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { Flex, Image } from "@chakra-ui/react";
 import { useDrag } from "react-dnd";
 
+// Takes inventoryItem prop that includes name and image info
+// Add drag functionality
 const InventoryItem = (props: any) => {
   const ref = useRef();
   const { inventoryItem, ...rest } = props;

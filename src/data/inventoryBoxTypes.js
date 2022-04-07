@@ -1,50 +1,56 @@
 export const inventoryBoxTypes = [
   {
     id: 0,
-    name: "5x6x8",
+    name: "5x5x5",
     dimensions: {
       x: 5,
-      y: 6,
-      z: 8
+      y: 5,
+      z: 5
     },
-    weightMax: 150
+    weightMax: 50,
+    price: 50
   },
   {
     id: 1,
-    name: "5x12x8",
+    name: "5x10x10",
     dimensions: {
       x: 5,
-      y: 12,
-      z: 8
+      y: 10,
+      z: 10
     },
-    weightMax: 150
-  },{
+    weightMax: 150,
+    price: 100
+  },
+  {
     id: 2,
-    name: "10x12x18",
+    name: "10x15x20",
     dimensions: {
       x: 10,
-      y: 12,
-      z: 18
+      y: 15,
+      z: 20
     },
-    weightMax: 500
+    weightMax: 300,
+    price: 150
   },{
     id: 3,
-    name: "4x4x4",
+    name: "20x15x20",
     dimensions: {
-      x: 4,
-      y: 4,
-      z: 4
+      x: 20,
+      y: 15,
+      z: 20
     },
-    weightMax: 100
+    weightMax: 400,
+    price: 200
   },{
     id: 4,
-    name: "18x12x12",
+    name: "20x20x20",
     dimensions: {
-      x: 18,
-      y: 12,
-      z: 12
+      x: 20,
+      y: 20,
+      z: 20
     },
-    weightMax: 250
+    weightMax: 500,
+    price: 300
   },{
     id: 5,
     name: "30x20x10",
@@ -53,42 +59,47 @@ export const inventoryBoxTypes = [
       y: 20,
       z: 10
     },
-    weightMax: 350
+    weightMax: 500,
+    price: 300
   },{
     id: 6,
-    name: "25x10x10",
+    name: "30x20x20",
     dimensions: {
-      x: 25,
-      y: 10,
-      z: 10
+      x: 30,
+      y: 20,
+      z: 20
     },
-    weightMax: 400
+    weightMax: 600,
+    price: 350
   },{
     id: 7,
+    name: "30x30x30",
+    dimensions: {
+      x: 30,
+      y: 30,
+      z: 30
+    },
+    weightMax: 700,
+    price: 400
+  },{
+    id: 8,
+    name: "40x40x40",
+    dimensions: {
+      x: 40,
+      y: 40,
+      z: 40
+    },
+    weightMax: 800,
+    price: 500
+  },{
+    id: 9,
     name: "50x50x50",
     dimensions: {
       x: 50,
       y: 50,
       z: 50
     },
-    weightMax: 1000
-  },{
-    id: 8,
-    name: "10x10x10",
-    dimensions: {
-      x: 10,
-      y: 10,
-      z: 10
-    },
-    weightMax: 300
-  },{
-    id: 9,
-    name: "25x25x25",
-    dimensions: {
-      x: 25,
-      y: 25,
-      z: 25
-    },
-    weightMax: 500
+    weightMax: 1000,
+    price: 600
   },
 ];

@@ -19,7 +19,8 @@ export const inventoryItems = [
       y: 20,
       z: 15
     },
-    image: printerPic
+    image: printerPic,
+    color: "magenta"
   },
   {
     id: 1,
@@ -29,8 +30,9 @@ export const inventoryItems = [
       x: 6,
       y: 4,
       z: 2
-    },
-    image: controllerPic
+    },    
+    image: controllerPic,   
+    color: "tomato"
   },
   {
     id: 2,
@@ -41,7 +43,8 @@ export const inventoryItems = [
       y: 5,
       z: 5
     },
-    image: drawersPic
+    image: drawersPic,
+    color: "lightseagreen"
   },
   {
     id: 3,
@@ -52,7 +55,8 @@ export const inventoryItems = [
       y: 9,
       z: 5
     },
-    image: headphonesPic
+    image: headphonesPic,
+    color: "cyan"
   },
   {
     id: 4,
@@ -63,7 +67,8 @@ export const inventoryItems = [
       y: 2,
       z: 5
     },
-    image: mousePic
+    image: mousePic,
+    color: "gold"
   },
   {
     id: 5,
@@ -74,7 +79,8 @@ export const inventoryItems = [
       y: 6,
       z: 4
     },
-    image: mugPic
+    image: mugPic,
+    color: "deeppink"    
   },
   {
     id: 6,
@@ -85,7 +91,8 @@ export const inventoryItems = [
       y: 10,
       z: 2
     },
-    image: paintingPic
+    image: paintingPic,
+    color: "wheat"
   },
   {
     id: 7,
@@ -96,7 +103,8 @@ export const inventoryItems = [
       y: 10,
       z: 1
     },
-    image: pliersPic
+    image: pliersPic,
+    color: "mediumblue"
   },
   {
     id: 8,
@@ -107,7 +115,8 @@ export const inventoryItems = [
       y: 10,
       z: 8
     },
-    image: speakerPic
+    image: speakerPic,
+    color: "brown"
   },
   {
     id: 9,
@@ -118,6 +127,7 @@ export const inventoryItems = [
       y: 10,
       z: 6
     },
-    image: turtlePic
+    image: turtlePic,
+    color: "lavender"
   }
 ]

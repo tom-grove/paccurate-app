@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ChakraProvider, Text, Flex, theme, Image } from "@chakra-ui/react";
 import InventoryItems from "./components/InventoryItems";
 import ItemsToPack from "./components/ItemsToPack";
-import Boxes from "./components/InventoryBoxes";
+import InventoryBoxes from "./components/InventoryBoxes";
 import Result from "./components/Result";
 import paccurateLogo from "./assets/images/paccurateLogo.svg";
 import { DndProvider } from "react-dnd";
@@ -10,11 +10,10 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { ItemsToPackProvider } from "./contexts/ItemsToPackContext";
 import { InventoryBoxesProvider } from "./contexts/InventoryBoxesContext";
 
+// Main app
+// Contains mostly Layout information and makes calls to other components
+// Setup for Context Providers done here too
 export const App = () => {
-  useEffect(() => {
-    console.log("App Loaded!");
-  }, []);
-
   return (
     <ChakraProvider theme={theme}>
       <Flex
@@ -46,29 +45,43 @@ export const App = () => {
         <ItemsToPackProvider>
           <InventoryBoxesProvider>
             <Flex flex="1" direction="column">
-              <Flex flex="5" maxHeight="calc(50vh - 50px)">
+              <Flex flex="5" width="100%" maxHeight="calc(50vh - 50px)">
                 <DndProvider backend={HTML5Backend}>
                   <Flex
+                    direction="column"
                     flex="2"
                     justifyContent="center"
-                    overflowX="hidden"
-                    overflowY="scroll"
+                    maxWidth="250px"
                   >
-                    <InventoryItems />
+                    <Flex justifyContent="center">
+                      <Text as="u">Inventory</Text>
+                    </Flex>
+                    <Flex overflowX="hidden" overflowY="scroll">
+                      <InventoryItems />
+                    </Flex>
                   </Flex>
-                  <Flex
-                    flex="6"
-                    justifyContent="center"
-                    alignItems="center"
-                    maxWidth="calc(60vw)"
-                    overflowY="scroll"
-                    overflowX="hidden"
-                  >
-                    <ItemsToPack />
+                  <Flex direction="column" flex="6" alignItems="center">
+                    <Flex justifyContent="center">
+                      <Text as="u">Pick List</Text>
+                    </Flex>
+                    <Flex
+                      height="100%"
+                      width="100%"
+                      overflowX="hidden"
+                      overflowY="scroll"
+                    >
+                      <ItemsToPack />
+                    </Flex>
                   </Flex>
                 </DndProvider>
-                <Flex flex="2" justifyContent="center">
-                  <Boxes />
+                <Flex direction="column" flex="2" maxWidth="250px">
+                  <Flex>
+                    <Text ml="20px" as="u">
+                      Boxes
+                    </Text>
+                  </Flex>
+
+                  <InventoryBoxes />
                 </Flex>
               </Flex>
               <Flex flex="5" justifyContent="center" alignItems="center">

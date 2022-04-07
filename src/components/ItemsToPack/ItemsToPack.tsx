@@ -17,10 +17,12 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { useDrop } from "react-dnd";
 import { ItemsToPackContext } from "../../contexts/ItemsToPackContext";
 
+// Creates a table of items from inventory
 const ItemsToPack = () => {
   const [itemsToPack, setItemsToPack] = useContext(ItemsToPackContext);
   const ref = useRef(null);
 
+  // Setup drop functions to received Inventory Images
   const [, drop] = useDrop({
     accept: "Image",
     drop: (item: any) =>
@@ -62,13 +64,13 @@ const ItemsToPack = () => {
           };
         }
       }),
-    hover(item) {
-      //console.log("hovering");
-    },
   });
 
+  // enable drop on element reference
   drop(ref);
 
+  // delete pick list item handler
+  // be sure to remove item if no quantity remains
   const deleteItemFromPickList = useCallback(
     (itemId: any) => {
       if (itemsToPack.hasOwnProperty(itemId)) {
@@ -84,7 +86,7 @@ const ItemsToPack = () => {
   );
 
   return (
-    <Box h="94%" ref={ref}>
+    <Box h="94%" width="100%" ref={ref}>
       <TableContainer>
         <Table variant="simple">
           <Thead>
