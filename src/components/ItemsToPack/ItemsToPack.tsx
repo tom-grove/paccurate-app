@@ -1,14 +1,12 @@
-import React, { useRef, useContext, useEffect, useState } from "react";
+import React, { useRef, useContext, useCallback } from "react";
 import {
   Box,
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
   Image,
   IconButton,
@@ -18,54 +16,11 @@ import {
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useDrop } from "react-dnd";
 import { ItemsToPackContext } from "../../contexts/ItemsToPackContext";
-import { get, set } from "lodash";
-import { inventoryItems } from "../../data/inventoryItems";
-
-/*
-
-console.log("dropped");
-      const droppedInventoryItem = item?.inventoryItem;      
-
-      setItemsToPackLocally((currentItems: any) => {      
-        if (droppedInventoryItem) {
-          const droppedInventoryItemTableRow = get(
-            currentItems,
-            droppedInventoryItem?.id
-          );
-
-          if (droppedInventoryItemTableRow) {
-            droppedInventoryItemTableRow.quantity++;
-            set(
-              currentItems,
-              droppedInventoryItem.id,
-              droppedInventoryItemTableRow
-            );
-          } else {
-            set(currentItems, droppedInventoryItem?.id, {
-              name: droppedInventoryItem?.name,
-              weight: droppedInventoryItem?.weight,
-              dimensions: {
-                x: droppedInventoryItem?.dimensions?.x,
-                y: droppedInventoryItem?.dimensions?.y,
-                z: droppedInventoryItem?.dimensions?.z,
-              },
-              image: droppedInventoryItem?.image,
-              quantity: 1,
-            });
-          }
-        }        
-
-        currentItems.push(droppedInventoryItem);
-        console.log(currentItems);
-
-        return currentItems;
-      });
-
-*/
 
 const ItemsToPack = () => {
   const [itemsToPack, setItemsToPack] = useContext(ItemsToPackContext);
   const ref = useRef(null);
+
   const [, drop] = useDrop({
     accept: "Image",
     drop: (item: any) =>
@@ -112,16 +67,21 @@ const ItemsToPack = () => {
     },
   });
 
-  useEffect(() => {
-    console.log("Inventory Items Updated!");
-    console.log(itemsToPack);
-  }, [itemsToPack]);
-
-  useEffect(() => {
-    console.log("render");
-  });
-
   drop(ref);
+
+  const deleteItemFromPickList = useCallback(
+    (itemId: any) => {
+      if (itemsToPack.hasOwnProperty(itemId)) {
+        if (itemsToPack[itemId].quantity > 1) {
+          itemsToPack[itemId].quantity--;
+        } else {
+          delete itemsToPack[itemId];
+        }
+        setItemsToPack({ ...itemsToPack });
+      }
+    },
+    [itemsToPack, setItemsToPack]
+  );
 
   return (
     <Box h="94%" ref={ref}>
@@ -161,7 +121,13 @@ const ItemsToPack = () => {
                     </Text>
                   </Td>
                   <Td>
-                    <IconButton aria-label="Delete Item" icon={<DeleteIcon />}>
+                    <IconButton
+                      aria-label="Delete Item"
+                      icon={<DeleteIcon />}
+                      onClick={() => {
+                        deleteItemFromPickList(inventoryItem);
+                      }}
+                    >
                       Remove
                     </IconButton>
                   </Td>

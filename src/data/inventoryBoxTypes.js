@@ -1,6 +1,6 @@
 export const inventoryBoxTypes = [
   {
-    id: 1,
+    id: 0,
     name: "5x6x8",
     dimensions: {
       x: 5,
@@ -10,7 +10,7 @@ export const inventoryBoxTypes = [
     weightMax: 150
   },
   {
-    id: 2,
+    id: 1,
     name: "5x12x8",
     dimensions: {
       x: 5,
@@ -19,7 +19,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 150
   },{
-    id: 3,
+    id: 2,
     name: "10x12x18",
     dimensions: {
       x: 10,
@@ -28,7 +28,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 500
   },{
-    id: 4,
+    id: 3,
     name: "4x4x4",
     dimensions: {
       x: 4,
@@ -37,7 +37,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 100
   },{
-    id: 5,
+    id: 4,
     name: "18x12x12",
     dimensions: {
       x: 18,
@@ -46,7 +46,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 250
   },{
-    id: 6,
+    id: 5,
     name: "30x20x10",
     dimensions: {
       x: 30,
@@ -55,7 +55,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 350
   },{
-    id: 7,
+    id: 6,
     name: "25x10x10",
     dimensions: {
       x: 25,
@@ -64,7 +64,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 400
   },{
-    id: 8,
+    id: 7,
     name: "50x50x50",
     dimensions: {
       x: 50,
@@ -73,7 +73,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 1000
   },{
-    id: 9,
+    id: 8,
     name: "10x10x10",
     dimensions: {
       x: 10,
@@ -82,7 +82,7 @@ export const inventoryBoxTypes = [
     },
     weightMax: 300
   },{
-    id: 10,
+    id: 9,
     name: "25x25x25",
     dimensions: {
       x: 25,

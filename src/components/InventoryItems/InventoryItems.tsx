@@ -1,4 +1,4 @@
-import React, { createRef, useRef } from "react";
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import InventoryItem from "./InventoryItem";
 import { inventoryItems } from "../../data/inventoryItems";

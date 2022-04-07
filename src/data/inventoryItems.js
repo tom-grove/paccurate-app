@@ -11,7 +11,7 @@ import turtlePic from "../assets/images/inventoryItems/Turtle.png";
 
 export const inventoryItems = [
   {
-    id: 1,
+    id: 0,
     name: "3D Printer",
     weight: "20",
     dimensions: {
@@ -22,7 +22,7 @@ export const inventoryItems = [
     image: printerPic
   },
   {
-    id: 2,
+    id: 1,
     name: "Controller",
     weight: "2",
     dimensions: {
@@ -33,18 +33,18 @@ export const inventoryItems = [
     image: controllerPic
   },
   {
-    id: 3,
+    id: 2,
     name: "Drawers",
     weight: "1",
     dimensions: {
-      x: 4,
-      y: 4,
-      z: 4
+      x: 5,
+      y: 5,
+      z: 5
     },
     image: drawersPic
   },
   {
-    id: 4,
+    id: 3,
     name: "Headphones",
     weight: "2",
     dimensions: {
@@ -55,7 +55,7 @@ export const inventoryItems = [
     image: headphonesPic
   },
   {
-    id: 5,
+    id: 4,
     name: "Mouse",
     weight: "3",
     dimensions: {
@@ -66,7 +66,7 @@ export const inventoryItems = [
     image: mousePic
   },
   {
-    id: 6,
+    id: 5,
     name: "Mug",
     weight: "5",
     dimensions: {
@@ -77,7 +77,7 @@ export const inventoryItems = [
     image: mugPic
   },
   {
-    id: 7,
+    id: 6,
     name: "Painting",
     weight: "3",
     dimensions: {
@@ -88,7 +88,7 @@ export const inventoryItems = [
     image: paintingPic
   },
   {
-    id: 8,
+    id: 7,
     name: "Pliers",
     weight: "2",
     dimensions: {
@@ -99,7 +99,7 @@ export const inventoryItems = [
     image: pliersPic
   },
   {
-    id: 9,
+    id: 8,
     name: "Speaker",
     weight: "5",
     dimensions: {
@@ -110,7 +110,7 @@ export const inventoryItems = [
     image: speakerPic
   },
   {
-    id: 10,
+    id: 9,
     name: "Turtle",
     weight: "2",
     dimensions: {

@@ -1,25 +1,14 @@
 import React, { useEffect } from "react";
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Flex,
-  theme,
-  Image,
-} from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { Logo } from "./Logo";
+import { ChakraProvider, Text, Flex, theme, Image } from "@chakra-ui/react";
 import InventoryItems from "./components/InventoryItems";
 import ItemsToPack from "./components/ItemsToPack";
-import Boxes from "./components/Boxes";
+import Boxes from "./components/InventoryBoxes";
 import Result from "./components/Result";
 import paccurateLogo from "./assets/images/paccurateLogo.svg";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import {
-  ItemsToPackContext,
-  ItemsToPackProvider,
-} from "./contexts/ItemsToPackContext";
+import { ItemsToPackProvider } from "./contexts/ItemsToPackContext";
+import { InventoryBoxesProvider } from "./contexts/InventoryBoxesContext";
 
 export const App = () => {
   useEffect(() => {
@@ -34,7 +23,11 @@ export const App = () => {
         fontSize="xl"
         overflow="hidden"
       >
-        <Flex flexBasis="50px" alignItems="center">
+        <Flex
+          flexBasis="50px"
+          alignItems="center"
+          borderBottom="solid black 1px"
+        >
           <Flex flex="1 150px" pr="10px" justifyContent="beginning">
             <Image
               src={paccurateLogo}
@@ -47,53 +40,43 @@ export const App = () => {
           <Flex flex="1" justifyContent="center" alignItems="center">
             <Text>Paccurate Picker by Tom</Text>
           </Flex>
-          <Flex flex="1 150px" pr="10px" justifyContent="end">
-            <ColorModeSwitcher justifySelf="flex-end" />
-          </Flex>
+          <Flex flex="1 150px" pr="10px" justifyContent="end"></Flex>
         </Flex>
 
-        <Flex flex="1" direction="column">
-          <Flex flex="5" maxHeight="calc(50vh - 50px)">
-            <DndProvider backend={HTML5Backend}>
-              <Flex
-                flex="2"
-                justifyContent="center"
-                overflowX="hidden"
-                overflowY="scroll"
-              >
-                <InventoryItems />
+        <ItemsToPackProvider>
+          <InventoryBoxesProvider>
+            <Flex flex="1" direction="column">
+              <Flex flex="5" maxHeight="calc(50vh - 50px)">
+                <DndProvider backend={HTML5Backend}>
+                  <Flex
+                    flex="2"
+                    justifyContent="center"
+                    overflowX="hidden"
+                    overflowY="scroll"
+                  >
+                    <InventoryItems />
+                  </Flex>
+                  <Flex
+                    flex="6"
+                    justifyContent="center"
+                    alignItems="center"
+                    maxWidth="calc(60vw)"
+                    overflowY="scroll"
+                    overflowX="hidden"
+                  >
+                    <ItemsToPack />
+                  </Flex>
+                </DndProvider>
+                <Flex flex="2" justifyContent="center">
+                  <Boxes />
+                </Flex>
               </Flex>
-              <Flex
-                flex="6"
-                justifyContent="center"
-                alignItems="center"
-                maxWidth="calc(60vw)"
-                overflowY="scroll"
-                overflowX="hidden"
-              >
-                <ItemsToPackProvider>
-                  <ItemsToPack />
-                </ItemsToPackProvider>
+              <Flex flex="5" justifyContent="center" alignItems="center">
+                <Result />
               </Flex>
-            </DndProvider>
-            <Flex
-              flex="2"
-              bgColor="pink"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Boxes />
             </Flex>
-          </Flex>
-          <Flex
-            flex="5"
-            bgColor="orange"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Result />
-          </Flex>
-        </Flex>
+          </InventoryBoxesProvider>
+        </ItemsToPackProvider>
       </Flex>
     </ChakraProvider>
   );
