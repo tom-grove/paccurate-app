@@ -1,5 +1,5 @@
 import React from "react";
-import { ChakraProvider, Text, Flex, theme, Image } from "@chakra-ui/react";
+import { ChakraProvider, Text, Flex, Image, extendTheme } from "@chakra-ui/react";
 import InventoryItems from "./components/InventoryItems";
 import ItemsToPack from "./components/ItemsToPack";
 import InventoryBoxes from "./components/InventoryBoxes";
@@ -9,6 +9,29 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { ItemsToPackProvider } from "./contexts/ItemsToPackContext";
 import { InventoryBoxesProvider } from "./contexts/InventoryBoxesContext";
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      "line.volume-line": {
+        "stroke": "#666",
+        "stroke-dasharray": "2,1",
+        "stroke-width": 1,
+      },
+      "polygon.volume-line": {
+        "stroke": "black",
+        "stroke-width": 1,
+        "fill-opacity": 0.1,
+        "stroke-opacity": 1,
+      },
+      "polygon.volume-line.solid": {
+        "fill-opacity": 1,
+        "transition-duration": "0.2s",
+        "stroke-opacity": 1,
+      }
+    }
+  }
+})
 
 // Main app
 // Contains mostly Layout information and makes calls to other components
