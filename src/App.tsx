@@ -13,7 +13,7 @@ import { InventoryBoxesProvider } from "./contexts/InventoryBoxesContext";
 const theme = extendTheme({
   styles: {
     global: {
-      "line.volumeLine": {
+      "line.volume-line": {
         "stroke": "#666",
         "strokeDasharray": "2,1",
         "strokeWidth": 1,
